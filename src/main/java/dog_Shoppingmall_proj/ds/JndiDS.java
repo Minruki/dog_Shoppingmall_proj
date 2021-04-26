@@ -41,7 +41,7 @@ public class JndiDS {
 	}
 	public static void rollback(Connection con) {
 		try {
-			con.commit();
+			con.rollback();
 			System.out.println("rollback success");
 		} catch (SQLException e) {
 			e.printStackTrace();

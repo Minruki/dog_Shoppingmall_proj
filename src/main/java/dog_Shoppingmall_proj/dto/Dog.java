@@ -9,15 +9,14 @@ public class Dog {
 	private int height;
 	private int weight;
 	private String content;
-	private int readcount;
+	private int readCount;
 	
 	public Dog() {
-		// 기본생성자
+		// TODO Auto-generated constructor stub
 	}
 
 	public Dog(int id, String kind, int price, String image, String country, int height, int weight, String content,
-			int readcount) {
-		super();
+			int readCount) {
 		this.id = id;
 		this.kind = kind;
 		this.price = price;
@@ -26,7 +25,7 @@ public class Dog {
 		this.height = height;
 		this.weight = weight;
 		this.content = content;
-		this.readcount = readcount;
+		this.readCount = readCount;
 	}
 
 	public int getId() {
@@ -93,25 +92,21 @@ public class Dog {
 		this.content = content;
 	}
 
-	public int getReadcount() {
-		return readcount;
+	public int getReadCount() {
+		return readCount;
 	}
 
-	public void setReadcount(int readcount) {
-		this.readcount = readcount;
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
 	}
 
 	@Override
 	public String toString() {
 		return String.format(
-				"Dog [id=%s, kind=%s, price=%s, image=%s, country=%s, height=%s, weight=%s, content=%s, readcount=%s]",
-				id, kind, price, image, country, height, weight, content, readcount);
+				"Dog [id=%s, kind=%s, price=%s, image=%s, country=%s, height=%s, weight=%s, content=%s, readCount=%s]",
+				id, kind, price, image, country, height, weight, content, readCount);
 	}
 	
 	
 	
-	
-	
-	
-
 }

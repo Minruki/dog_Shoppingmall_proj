@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import dog_Shoppingmall_proj.action.Action;
 import dog_Shoppingmall_proj.action.ActionForward;
+import dog_Shoppingmall_proj.action.NullAction;
+
+
 
 @WebServlet(urlPatterns = {"*.do"},
 		 loadOnStartup = 1, 
@@ -38,12 +41,19 @@ public class DogFrontController extends HttpServlet {
 			props.load(is);
 			
 			for(Entry<Object, Object> entry : props.entrySet()) {
-				Class<?> cls = Class.forName((String)entry.getValue());
-				Action action = (Action) cls.newInstance();
+				Class<?> cls;
+				Action action = null;
+				try {
+					cls = Class.forName((String)entry.getValue());
+					action = (Action) cls.newInstance();
+				} catch (ClassNotFoundException e) {
+					action = new NullAction();
+					e.printStackTrace();
+				}
 				actionMap.put((String)entry.getKey(), action);
 			}
 
-		} catch (IOException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+		} catch (IOException | InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
 	}
