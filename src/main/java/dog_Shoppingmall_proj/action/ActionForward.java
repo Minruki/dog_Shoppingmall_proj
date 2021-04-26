@@ -7,14 +7,10 @@ public class ActionForward {
 	public ActionForward() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public ActionForward(String path) {
 		this.path = path;
 	}
-
-
 
 	public ActionForward(String path, boolean redirect) {
 		this.path = path;
